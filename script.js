@@ -1,8 +1,8 @@
 const GameBoard = (function () {
     let gameBoard = [
-        [" ", " ", " "],
-        [" ", " ", " "],
-        [" ", " ", " "],
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
     ];
     const whoWinner = function () {
         let symbol;
@@ -56,9 +56,9 @@ const GameBoard = (function () {
         }
     };
     const getBoardCell = (row, column) => gameBoard[row][column];
-    const setBoardCell = (row, column, symbolBool) => {
+    const setBoardCell = (row, column, symbol) => {
         if (gameBoard[row][column] != "X" && gameBoard[row][column] != "O") {
-            gameBoard[row][column] = symbolBool ? "X" : "O";
+            gameBoard[row][column] = symbol;
         } else {
             console.log("Cell is busy");
         }
@@ -75,14 +75,13 @@ const GameBoard = (function () {
 })();
 //true  - X
 //false - O
-function player(name, symbolBool) {
+function player(name) {
     let point = 0;
     const addPoint = () => point++;
     const rejectPoint = () => point--;
     const getPoint = () => point;
     return {
         name,
-        symbolBool,
         addPoint,
         rejectPoint,
         getPoint,
@@ -90,25 +89,53 @@ function player(name, symbolBool) {
 }
 
 const init = (function () {
-    const cell = document.getElementsByClassName("cell");
-    
-    const player1 = player("joe", true);
-    const player2 = player("joseph", false);
-    GameBoard.setBoardCell(2, 2, player1.symbolBool);
-    GameBoard.setBoardCell(2, 1, player2.symbolBool);
-    GameBoard.setBoardCell(0, 0, player1.symbolBool);
-    GameBoard.setBoardCell(1, 1, player1.symbolBool);
-    if (GameBoard.whoWinner() === player1.symbolBool) {
-        console.log("Player 1 Win");
-        player1.addPoint();
-    } else if (GameBoard.whoWinner() === player2.symbolBool) {
-        console.log("Player 2 Win");
-        player2.addPoint();
-    } else {
-        console.log("Draw");
-    }
-    GameBoard.print();
+    const player1 = player("joe");
+    const player2 = player("joseph");
+    let symbol = "X";
+    const containerCell = document.querySelector(".container");
+    containerCell.addEventListener("click", (e) => {
+        switch (e.target.id) {
+            case "1":
+                GameBoard.setBoardCell(0, 0, symbol);
+                break;
+            case "2":
+                GameBoard.setBoardCell(0, 1, symbol);
+                break;
+            case "3":
+                GameBoard.setBoardCell(0, 2, symbol);
+                break;
+            case"4":
+                GameBoard.setBoardCell(1, 0, symbol);
+                break;
+            case "5":
+                GameBoard.setBoardCell(1, 1, symbol);
+                break;
+            case "6":
+                GameBoard.setBoardCell(1, 2, symbol);
+                break;
+            case "7":
+                GameBoard.setBoardCell(2, 0, symbol);
+                break;
+            case "8":
+                GameBoard.setBoardCell(2, 1, symbol);
+                break;
+            case "9":
+                GameBoard.setBoardCell(2, 2, symbol);
+                break;
+        }
+        e.target.textContent = symbol;
+        GameBoard.print();
 
+        // if (GameBoard.whoWinner() === player1.symbolBool) {
+        //     console.log("Player 1 Win");
+        //     player1.addPoint();
+        // } else if (GameBoard.whoWinner() === player2.symbolBool) {
+        //     console.log("Player 2 Win");
+        //     player2.addPoint();
+        // } else {
+        //     console.log("Draw");
+        // }
+    });
     console.log({
         point1: player1.getPoint(),
         point2: player2.getPoint(),

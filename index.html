@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js" defer></script>
-    <style>
-        .page{
-            display:grid;
-            grid-template-columns: 0.5fr 1fr 0.5fr;
-        }
-        .left{
-            text-align: center;
-            grid-column: 0/1;
-            align-items: center;
-        }
-        .container{
-            grid-column: 2/3;
-            grid-row:1/4;
-        }
-        .right{
-            text-align: center;
-            grid-column: 3/4;
-            align-items: center;
-        }
-        .container{
-            margin:0 auto;
-            width: 900px;
-            height:900px;
-            display:grid;
-            grid-template-columns:1fr 1fr 1fr;
-            grid-template-rows:1fr 1fr 1fr;
-        }
-        .cell{
-            border:1px solid black;
-        }
-        .cell:hover{
-            background-color: rgba(128, 128, 128, 0.301);
-        }
-    </style>
-</head>
-<body>
-    <div class="page">
-        <div class="left">
-            <p>Round</p>
-            <p>Infa player 1</p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="script.js" defer></script>
+        <style>
+            .page {
+                display: grid;
+                grid-template-columns: 0.5fr 1fr 0.5fr;
+            }
+            .left {
+                text-align: center;
+                grid-column: 0/1;
+                align-items: center;
+            }
+            .container {
+                grid-column: 2/3;
+                grid-row: 1/4;
+            }
+            .right {
+                text-align: center;
+                grid-column: 3/4;
+                align-items: center;
+            }
+            .container {
+                margin: 0 auto;
+                width: 900px;
+                height: 900px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+            }
+            .cell {
+                border: 1px solid black;
+            }
+            .cell:hover {
+                background-color: rgba(128, 128, 128, 0.301);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="left">
+                <p>Round</p>
+                <p>Infa player 1</p>
+            </div>
+            <div class="right">
+                <p>Status Game</p>
+                <p>Infa player 2</p>
+            </div>
+            <div class="container">
+                <button id="1" class="cell"></button>
+                <button id="2" class="cell"></button>
+                <button id="3" class="cell"></button>
+                <button id="4" class="cell"></button>
+                <button id="5" class="cell"></button>
+                <button id="6" class="cell"></button>
+                <button id="7" class="cell"></button>
+                <button id="8" class="cell"></button>
+                <button id="9" class="cell"></button>
+            </div>
         </div>
-        <div class="right">
-            <p>Status Game</p>
-            <p>Infa player 2</p>
-        </div>
-        <div class="container">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-        </div>
-    </div>
-</body>
+    </body>
 </html>
