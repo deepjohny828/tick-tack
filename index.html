@@ -43,12 +43,34 @@
     <body>
         <div class="page">
             <div class="left">
-                <p>Round</p>
-                <p>Infa player 1 X</p>
+                <button id="start-btn">Start/Continue</button>
+                <p id="info-player1">player 1 \X/</p>
+                <p>
+                    <span>Score: </span><span id="score-player1"></span>
+                </p>
+                <label for="name-player1">
+                    Игрок 1: 
+                    <input type="text" id="name-player1">
+                </label>
+                
+                <p>
+                    <span>Round: </span><span id="status-round"></span>
+                </p>
             </div>
             <div class="right">
-                <p>Status Game</p>
-                <p>Infa player 2 O</p>
+                
+                <button id="restart-btn">Restart</button>
+                <p id="info-player2">player 2 \O/</p>
+                <p>
+                    <span>Score: </span><span id="score-player2"></span>
+                </p>
+                <label for="name-player2">
+                    Игрок 2: 
+                    <input type="text" id="name-player2">
+                </label>
+                <p>
+                    <span>Status Game: </span><span id="status-game"></span>
+                </p>
             </div>
             <div class="container">
                 <button id="1" class="cell"></button>
